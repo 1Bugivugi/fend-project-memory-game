@@ -1,6 +1,15 @@
 /*
  * Create a list that holds all of your cards
  */
+ const cards = ['fa fa-diamond' , 'fa fa-diamond',
+ 'fa fa-paper-plane-o', 'fa fa-paper-plane-o',
+ 'fa fa-anchor', 'fa fa-anchor',
+ 'fa fa-leaf', 'fa fa-leaf',
+ 'fa fa-bicycle', 'fa fa-bicycle',
+ 'fa fa-bolt', 'fa fa-bolt',
+ 'fa fa-cube', 'fa fa-cube',
+ 'fa fa-bomb', 'fa fa-bomb'
+]
 
 
 /*
@@ -25,6 +34,27 @@ function shuffle(array) {
     return array;
 }
 
+//Reload button
+
+const reload = document.querySelector('.fa-repeat')
+reload.addEventListener('click', function(){
+  window.location.reload()
+});
+
+// Moves counter
+let count = 0;
+
+const cardClick = document.querySelector('.card');
+cardClick.addEventListener('click', function(){
+  count += 1;
+  document.getElementById('moves').innerHTML = count;
+});
+
+// Stars
+const pickStar = document.querySelector('.stars');
+if (count >= 20){
+  pickStar.removeChild(pickStar.childNodes[1]);
+}
 
 /*
  * set up the event listener for a card. If a card is clicked:
