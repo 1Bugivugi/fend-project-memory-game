@@ -11,6 +11,7 @@
  'fa fa-bomb', 'fa fa-bomb'
 ]
 
+let cardDeck = document.querySelector('.deck')
 
 /*
  * Display the cards on the page
@@ -41,20 +42,29 @@ reload.addEventListener('click', function(){
   window.location.reload()
 });
 
-// Moves counter
+// Moves counter and stars rating
 let count = 0;
-
-const cardClick = document.querySelector('.card');
-cardClick.addEventListener('click', function(){
-  count += 1;
-  document.getElementById('moves').innerHTML = count;
+let cardClick = document.querySelector('.card');
+let starList = document.getElementById('starsUL');
+cardDeck.addEventListener('click', function(){
+    count++;
+    document.getElementById('moves').innerHTML = count;
+    if (count >= 20){
+      starList.removeChild(starList.childNodes[0]);
+    } else if (count > 30){
+      starList.removeChild(starList.childNodes[0]);
+    } else if (count > 40){
+      starList.removeChild(starList.childNodes[0]);
+    }
 });
 
 // Stars
-const pickStar = document.querySelector('.stars');
-if (count >= 20){
-  pickStar.removeChild(pickStar.childNodes[1]);
-}
+// let starList = document.getElementById('starsUL');
+// if (count >= 0){
+//   starList.removeChild(starList.childNodes[0]);
+// }
+
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
