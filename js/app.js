@@ -33,6 +33,7 @@ let cardDeck = document.querySelector('.deck');
 let openedCards = [];
 let matchedCards = [];
 let gameIsOn = true;
+let starsAmount;
 
 /*
  * Create cards
@@ -118,10 +119,9 @@ function movesCounter(){
 function gameOver(){
   setTimeout(function(){
     if (matchedCards.length === cards.length){
-      alert ("You won! Congrats!");
+      swal("You won! Congrats!", "You've got " + score() + " stars in " + min + ":" + sec, "success");
     }
   }, 850);
-  gameIsOn = false;
 };
 
 /*
@@ -158,11 +158,11 @@ reload.addEventListener('click', function(){
 let starList = document.getElementById("starsUL");
 function rating(){
   switch (count){
-    case 11:
-    starList.removeChild(starList.childNodes[0]);
     case 16:
     starList.removeChild(starList.childNodes[0]);
-    case 21:
+    case 19:
+    starList.removeChild(starList.childNodes[0]);
+    case 25:
     starList.removeChild(starList.childNodes[0]);
   }};
     // case 10:
@@ -217,7 +217,7 @@ function runTimer(){
         sec = 0;
       }
       timer.innerHTML = addZero(min) + ":" + addZero(sec);
-}}, 1000)
+  }}, 1000)
 };
 
 function addZero(number){
@@ -225,6 +225,23 @@ function addZero(number){
     return '0' + number;
   } else {
     return number;
+  }
+};
+
+/*
+* Score
+*/
+
+function score(){
+  if (count <= 16){
+    starsAmount = 3;
+    return starsAmount;
+  } else if (16 < count <= 19){
+    starsAmount = 2;
+    return starsAmount;
+  } else {
+    starsAmount = 1;
+    return starsAmount;
   }
 };
 
