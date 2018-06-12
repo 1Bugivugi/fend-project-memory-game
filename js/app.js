@@ -35,6 +35,7 @@ let matchedCards = [];
 let gameIsOn = true;
 let starsAmount;
 let uhmTimer;
+let firstClick = true;
 
 /*
  * Create cards
@@ -54,8 +55,12 @@ function startGame(){
  */
 
 function click(card){
-
   card.addEventListener("click", function(){
+
+    if (firstClick){
+      runTimer();
+      firstClick = false;
+    };
 
     if (openedCards.length === 1){
 
@@ -107,10 +112,7 @@ let count = 0;
 function movesCounter(){
   count++;
   document.getElementById('moves').innerHTML = count;
-  rating();
-  if (count === 1){
-    runTimer();
-  }
+  rating()
 };
 
 /*
@@ -173,32 +175,11 @@ function rating(){
     case 16:
     starList.removeChild(starList.childNodes[0]);
     case 19:
-    starList.removeChild(starList.childNodes[0]);
-    case 25:
-    starList.removeChild(starList.childNodes[0]);
+    starList.removeChild(starList.childNodes[0]); // <- PLEASE EXPLAIN THIS
+    starList.removeChild(starList.childNodes[0]); // <- PLEASE EXPLAIN THIS
+    // case 25:
+    // starList.removeChild(starList.childNodes[0]);
   }};
-    // case 10:
-    //   starList.innerHTML = ` <li><i class="fa fa-star"></i></li>
-    //   <li><i class="fa fa-star"></i></li> `;
-    // break;
-    // case 15:
-    //   starList.innerHTML = ` <li><i class="fa fa-star"></i></li> `;
-    // }};
-
-// let count = 0;
-// let cardClick = document.querySelector('.card');
-// let starList = document.getElementById('starsUL');
-// cardDeck.addEventListener('click', function(){
-//     count++;
-//     document.getElementById('moves').innerHTML = count;
-//     if (count > 20){
-//       starList.removeChild(starList.childNodes[0]);
-//     } else if (count > 10){
-//       starList.removeChild(starList.childNodes[1]);
-//     } else if (count > 5){
-//       starList.removeChild(starList.childNodes[1]);
-//     }
-// });
 
 /*
 * Freeze function - I tryed :(
@@ -256,7 +237,7 @@ function score(){
   if (count <= 16){
     starsAmount = 3;
     return starsAmount;
-  } else if (16 < count <= 19){
+  } else if (16 < count && count < 19){ //for some reason (16 < count < 19) didn't work in a proper way, can you pls explain why?
     starsAmount = 2;
     return starsAmount;
   } else {
