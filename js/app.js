@@ -119,7 +119,17 @@ function movesCounter(){
 function gameOver(){
   setTimeout(function(){
     if (matchedCards.length === cards.length){
-      swal("You won! Congrats!", "You've got " + score() + " stars in " + min + ":" + sec, "success");
+      swal("You won! Congrats!", "You've got " + score() + " stars in " + addZero(min) + ":" + addZero(sec), "success", {
+        buttons: {
+          restart: {
+            text: "Play again?",
+            value: "restart"
+          }
+        },
+      })
+      .then(function(){
+        window.location.reload();
+      });
     }
   }, 850);
 };
