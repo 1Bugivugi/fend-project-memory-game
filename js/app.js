@@ -34,6 +34,7 @@ let openedCards = [];
 let matchedCards = [];
 let gameIsOn = true;
 let starsAmount;
+let uhmTimer;
 
 /*
  * Create cards
@@ -130,6 +131,7 @@ function gameOver(){
       .then(function(){
         window.location.reload();
       });
+      stopTimer();
     }
   }, 850);
 };
@@ -219,7 +221,7 @@ let min = 0;
 let sec = 0;
 
 function runTimer(){
-  setInterval(function(){
+  uhmTimer = setInterval(function(){
     if(gameIsOn){
       sec++;
       if (sec === 60){
@@ -236,6 +238,14 @@ function addZero(number){
   } else {
     return number;
   }
+};
+
+/*
+* Stop timer
+*/
+
+function stopTimer(){
+  clearInterval(uhmTimer)
 };
 
 /*
