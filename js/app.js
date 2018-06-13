@@ -19,15 +19,25 @@
 /*
  * Create a list that holds all of your cards
  */
- const cards = ["fa fa-diamond" , "fa fa-diamond",
- "fa fa-paper-plane-o", "fa fa-paper-plane-o",
- "fa fa-anchor", "fa fa-anchor",
- "fa fa-leaf", "fa fa-leaf",
- "fa fa-bicycle", "fa fa-bicycle",
- "fa fa-bolt", "fa fa-bolt",
- "fa fa-cube", "fa fa-cube",
- "fa fa-bomb", "fa fa-bomb"
-]
+//  const cards = ["fa fa-diamond" , "fa fa-diamond",
+//  "fa fa-paper-plane-o", "fa fa-paper-plane-o",
+//  "fa fa-anchor", "fa fa-anchor",
+//  "fa fa-leaf", "fa fa-leaf",
+//  "fa fa-bicycle", "fa fa-bicycle",
+//  "fa fa-bolt", "fa fa-bolt",
+//  "fa fa-cube", "fa fa-cube",
+//  "fa fa-bomb", "fa fa-bomb"
+// ];
+const cards1 = ["fa fa-diamond",
+"fa fa-paper-plane-o",
+"fa fa-anchor",
+"fa fa-leaf",
+"fa fa-bicycle",
+"fa fa-bolt",
+"fa fa-cube",
+"fa fa-bomb"
+];
+const cards = cards1.concat(cards1); //did i do that right? If so, that's pretty neat :)
 
 let cardDeck = document.querySelector('.deck');
 let openedCards = [];
@@ -122,7 +132,7 @@ function movesCounter(){
 function gameOver(){
   setTimeout(function(){
     if (matchedCards.length === cards.length){
-      swal("You won! Congrats!", "You've got " + score() + " stars in " + addZero(min) + ":" + addZero(sec), "success", {
+      swal("You won! Congrats!", "You've got " + score() + " stars in " + addZero(min) + ":" + addZero(sec), "success", { // didnt quite get where to use template literals here
         buttons: {
           restart: {
             text: "Play again?",
