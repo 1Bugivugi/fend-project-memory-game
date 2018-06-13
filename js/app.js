@@ -175,11 +175,24 @@ function rating(){
     case 16:
     starList.removeChild(starList.childNodes[0]);
     case 19:
-    starList.removeChild(starList.childNodes[0]); // <- PLEASE EXPLAIN THIS
-    starList.removeChild(starList.childNodes[0]); // <- PLEASE EXPLAIN THIS
-    // case 25:
-    // starList.removeChild(starList.childNodes[0]);
+    starList.removeChild(starList.childNodes[0]);
+    starList.removeChild(starList.childNodes[0]);
   }};
+
+  /*
+  * Score
+  */
+
+function score(){
+  if (count < 16){
+    starsAmount = 3;
+  } else if (16 <= count && count < 19){
+    starsAmount = 2;
+  } else {
+    starsAmount = 1;
+  }
+  return starsAmount;
+};
 
 /*
 * Freeze function - I tryed :(
@@ -229,22 +242,7 @@ function stopTimer(){
   clearInterval(uhmTimer)
 };
 
-/*
-* Score
-*/
 
-function score(){
-  if (count <= 16){
-    starsAmount = 3;
-    return starsAmount;
-  } else if (16 < count && count < 19){ //for some reason (16 < count < 19) didn't work in a proper way, can you pls explain why?
-    starsAmount = 2;
-    return starsAmount;
-  } else {
-    starsAmount = 1;
-    return starsAmount;
-  }
-};
 
 shuffle(cards);
 startGame();
