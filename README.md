@@ -15,7 +15,7 @@ This project is part of the Front End Web Developer course, provided by Udacity 
 
 ## Usage
 
-In this game you've got 16 cards, 8 pairs, match them all to win!
+In this game you've got 16 cards, 8 pairs, match them all to win! In order to play either download the repo and open up index.html OR go here https://1bugivugi.github.io/fend-project-memory-game/
 
 ## Contributing
 
